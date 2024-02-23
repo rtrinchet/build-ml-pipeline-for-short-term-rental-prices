@@ -12,7 +12,6 @@ logger = logging.getLogger()
 
 
 def go(args):
-
     run = wandb.init(job_type="basic_cleaning")
     run.config.update(args)
 
@@ -21,7 +20,6 @@ def go(args):
     # artifact_local_path = run.use_artifact(args.input_artifact).file()
 
     logger.info('Starting the cleaning process')
-
 
     logger.info('Getting data from wandb to local dataframe')
 
@@ -57,54 +55,50 @@ def go(args):
     run.log_artifact(artifact)
 
 
-
 if __name__ == "__main__":
-
     parser = argparse.ArgumentParser(description="A very basic data cleaning")
 
-
     parser.add_argument(
-        "--input_artifact", 
+        "--input_artifact",
         type=str,
-        help="## INSERT DESCRIPTION HERE",
+        help="Name of the input artifact loaded at the beginning of the cleaning file",
         required=True
     )
 
     parser.add_argument(
-        "--output_artifact", 
+        "--output_artifact",
         type=str,
-        help="## INSERT DESCRIPTION HERE",
+        help="Name of the output artifact",
         required=True
     )
 
     parser.add_argument(
-        "--output_type", 
+        "--output_type",
         type=str,
-        help="## INSERT DESCRIPTION HERE",
+        help="The type of the output W and B artifact",
         required=True
     )
 
     parser.add_argument(
-        "--output_description", 
+        "--output_description",
         type=str,
-        help="## INSERT DESCRIPTION HERE",
+        help="Description of the output artifact for W and B",
         required=True
     )
 
     parser.add_argument(
-        "--min_price", 
+        "--min_price",
         type=float,
-        help="## INSERT DESCRIPTION HERE",
+        help="Minimum price considered",
         required=True
     )
 
     parser.add_argument(
-        "--max_price", 
+        "--max_price",
         type=float,
-        help="## INSERT DESCRIPTION HERE",
+        help="Maximum price considered",
         required=True
     )
-
 
     args = parser.parse_args()
 

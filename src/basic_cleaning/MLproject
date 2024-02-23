@@ -6,28 +6,28 @@ entry_points:
     parameters:
 
       input_artifact:
-        description: ## ADD DESCRIPTION
+        description: Name of the input artifact loaded at the beginning of the cleaning file
         type: string
 
       output_artifact:
-        description: ## ADD DESCRIPTION
+        description: Name of the output artifact
         type: string
 
       output_type:
-        description: ## ADD DESCRIPTION
+        description: The type of the output W and B artifact
         type: string
 
       output_description:
-        description: ## ADD DESCRIPTION
+        description: Description of the output artifact for W and B
         type: string
 
       min_price:
-        description: ## ADD DESCRIPTION
-        type: string
+        description: Minimum price considered
+        type: float
 
       max_price:
-        description: ## ADD DESCRIPTION
-        type: string
+        description: Maximum price considered
+        type: float
 
 
     command: >-
